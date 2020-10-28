@@ -1,0 +1,108 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7890
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:5450
+  nameserver:
+    - 223.5.5.5
+    - 119.28.28.28
+    - 119.29.29.29
+cfw-bypass:
+  - qq.com
+  - music.163.com
+  - "*.music.126.net"
+  - localhost
+  - 127.*
+  - 10.*
+  - 172.16.*
+  - 172.17.*
+  - 172.18.*
+  - 172.19.*
+  - 172.20.*
+  - 172.21.*
+  - 172.22.*
+  - 172.23.*
+  - 172.24.*
+  - 172.25.*
+  - 172.26.*
+  - 172.27.*
+  - 172.28.*
+  - 172.29.*
+  - 172.30.*
+  - 172.31.*
+  - 192.168.*
+  - <local>
+cfw-latency-timeout: 3000
+proxies:
+  - name: 🌸
+    type: socks5
+    server: 127.0.0.1
+    port: "1080"
+proxy-groups:
+  - name: 🔰PROXY
+    type: select
+    proxies:
+      - 🌸
+      - DIRECT
+      - REJECT
+  - name: 🍎Apple
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+  - name: 🍂Domestic
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+  - name: 📺StreamingCN
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+  - name: 🎞️StreamingSE
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+  - name: 🎬Streaming
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+  - name: 🚀Speedtest
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+  - name: ☁️Final
+    type: select
+    proxies:
+      - 🔰PROXY
+      - DIRECT
+      - REJECT
+rules:
+  - RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Speedtest.list,🚀Speedtest
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list,🎬Streaming
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list,🎞️StreamingSE
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingCN.list,📺StreamingCN
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list,🍎Apple
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list,🔰PROXY
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list,🍂Domestic
+  - RULE-SET,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list,🍂Domestic
+  - RULE-SET,https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Domestic.list,🍂Domestic
+  - GEOIP,CN,🍂Domestic
+  - MATCH,☁️Final
