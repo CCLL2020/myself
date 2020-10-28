@@ -10,14 +10,10 @@ dns:
   enable: true
   enhanced-mode: redir-host
   listen: 0.0.0.0:5450
-  default-nameserver:
-    - 223.5.5.5
-    - 119.28.28.28
-    - 8.8.8.8
   nameserver:
     - 223.5.5.5
     - 119.28.28.28
-    - 8.8.8.8
+    - 114.114.114.114
 cfw-bypass:
   - qq.com
   - music.163.com
