@@ -1,0 +1,69 @@
+[custom]
+;不要随意改变关键字，否则会导致出错
+;DivineEngine
+clash_rule_base=https://raw.githubusercontent.com/CCLL2020/myself/main/Auto/Clash/clash.yml
+
+
+
+exclude_remarks=(流量|时间|流浪|官网|产品)
+exclude_remarks=(应急|续费)
+exclude_remarks=(剩余流量|到期时间|过期时间|官网地址|产品名称)
+exclude_remarks=(.*流量.*剩.*天)
+exclude_remarks=(■等级警报■)
+exclude_remarks=\[限速\]
+exclude_remarks=\[游戏\]
+exclude_remarks=\[游戏专用\]
+exclude_remarks=\[将下线\]
+exclude_remarks=(.*耗尽.*)
+exclude_remarks=(近期下线)
+exclude_remarks=(游戏专线)
+exclude_remarks=(维护)
+
+;设置规则标志位
+surge_ruleset=🚀Speedtest,https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Speedtest.list
+surge_ruleset=📲Telegram,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Telegram/Telegram.list
+surge_ruleset=🎥Netflix,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Netflix.list
+surge_ruleset=📹YouTube,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/YouTube.list
+surge_ruleset=📽️Bahamut,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Video/Bahamut.list
+surge_ruleset=🎬Streaming,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/Streaming.list
+surge_ruleset=🎞️StreamingSE,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list
+surge_ruleset=📺StreamingCN,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingCN.list
+surge_ruleset=🎮Gaming,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Game/Steam.list
+surge_ruleset=🎮Gaming,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Game/Discord.list
+surge_ruleset=🎮Gaming,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Game/Blizzard.list
+surge_ruleset=🍎Apple,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Extra/Apple/Apple.list
+surge_ruleset=🔰PROXY,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Global.list
+surge_ruleset=🍂Domestic,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/China.list
+surge_ruleset=🍂Domestic,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/Unbreak.list
+surge_ruleset=🍂Domestic,https://raw.githubusercontent.com/lhie1/Rules/master/Surge/Surge%203/Provider/Domestic.list
+surge_ruleset=🍂Domestic,[]GEOIP,CN
+surge_ruleset=☁️Final,[]MATCH
+
+;设置规则标志位
+
+;设置分组标志位
+custom_proxy_group=🌸Auto`select`.*
+custom_proxy_group=🇭🇰HK`select`(?i:HK|Hong.*?Kong|HKT|HKBN|HGC|WTT|CMI|[^-]港)
+custom_proxy_group=🇨🇳TW`select`(台|新北|彰化|TW|Taiwan)
+custom_proxy_group=🇯🇵JP`select`(JP|Japan|日本|东京|大阪|埼玉|[^-]日)
+custom_proxy_group=🇸🇬SG`select`(SG|Singapore|新加坡|狮城|[^-]新)
+custom_proxy_group=🇺🇸US`select`(?i:US|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)
+custom_proxy_group=🇰🇷KR`select`(KR|Korea|KOR|首尔|韩|韓)
+custom_proxy_group=🇺🇳UN`select`GCX`^((?i:HK|Hong.*?Kong|HKT|HKBN|HGC|WTT|CMI|[^-]港|台|新北|彰化|TW|Taiwan|JP|Japan|日本|东京|大阪|埼玉|[^-]日|SG|Singapore|新加坡|狮城|[^-]新|?i:US|America|United.*?States|美国|[^-]美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|KR|Korea|KOR|首尔|韩|韓).)*$
+custom_proxy_group=🔰PROXY`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🍎Apple`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=📲Telegram`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🍂Domestic`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=📽️Bahamut`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=📹YouTube`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🎥Netflix`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=📺StreamingCN`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🎞️StreamingSE`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🎬Streaming`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🎮Gaming`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=🚀Speedtest`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+custom_proxy_group=☁️Final`select`[]🌸Auto`[]🇭🇰HK`[]🇨🇳TW`[]🇯🇵JP`[]🇸🇬SG`[]🇺🇸US`[]🇰🇷KR`[]🇺🇳UN`[]DIRECT`[]REJECT
+
+
+enable_rule_generator=true
+overwrite_original_rules=true
