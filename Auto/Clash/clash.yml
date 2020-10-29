@@ -87,8 +87,6 @@ dns:
   # i.e. questions to these domain names will always be answered with their
   # real IP addresses
   fake-ip-filter:
-    - '*.lan'
-    - localhost.ptlogin2.qq.com
     - 'dns.msftncsi.com'
     - 'www.msftncsi.com'
     - 'www.msftconnecttest.com'
@@ -122,7 +120,7 @@ dns:
   fallback-filter:
     geoip: true
     ipcidr:
-     # - 240.0.0.0/4
+     - 240.0.0.0/4
 
 
 proxies:
