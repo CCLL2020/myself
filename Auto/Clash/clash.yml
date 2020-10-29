@@ -97,8 +97,9 @@ dns:
   nameserver:
     - 119.29.29.29
     - 8.8.8.8
-    # - tls://dns.rubyfish.cn:853 # DNS over TLS
-    # - https://1.1.1.1/dns-query # DNS over HTTPS
+    - tls://dns.rubyfish.cn:853 # DNS over TLS
+    - https://1.1.1.1/dns-query # DNS over HTTPS
+
 
   # When `fallback` is present, the DNS server will send concurrent requests
   # to the servers in this section along with servers in `nameservers`.
@@ -121,7 +122,7 @@ dns:
   fallback-filter:
     geoip: true
     ipcidr:
-      # - 240.0.0.0/4
+       - 240.0.0.0/4
 proxies:
   - name: 🌸
     type: socks5
