@@ -40,7 +40,6 @@ cfw-bypass:
   - 172.30.*
   - 172.31.*
   - 192.168.*
-  - <local>
 cfw-latency-timeout: 3000
 proxies:
   - name: 🌸
