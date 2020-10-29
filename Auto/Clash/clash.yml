@@ -70,7 +70,7 @@ hosts:
 dns:
   enable: false
   listen: 0.0.0.0:53
-  # ipv6: false # when false, response to AAAA questions will be empty
+  ipv6: false # when false, response to AAAA questions will be empty
 
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
