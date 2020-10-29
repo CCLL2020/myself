@@ -1,33 +1,88 @@
 port: 7890
+
 socks-port: 7891
+
 mixed-port: 7890
-allow-lan: true
-mode: Rule
+
+allow-lan: false
+
+bind-address: '*'
+
+mode: rule
+
 log-level: info
-external-controller: '127.0.0.1:9090'
+
+bind-address: '*'
+
+log-level: info
+
+ipv6: false
+
+external-controller: 127.0.0.1:9090
+
+hosts:
+
+  'mtalk.google.com': 108.177.125.188
+
+  't.cn': 203.107.55.116
+
+  # '*.clash.dev': 127.0.0.1
+
+  # '.dev': 127.0.0.1
+
+  # 'alpha.clash.dev': '::1'
+
 dns:
-  enable: true
+
+  enable: false
+
+  listen: 0.0.0.0:5450
+
   ipv6: false
-  listen: '0.0.0.0:53'
-  enhanced-mode: redir-host
+
   default-nameserver:
+
     - 119.29.29.29
-    - 119.28.28.28
-    - 1.2.4.8
+
+    - 1.0.0.1
+
+  enhanced-mode: redir-host # or fake-ip
+
+  fake-ip-range: 198.18.0.1/16 # Fake IP addresses pool CIDR
+
+  
+
   fake-ip-filter:
-    - '*.lan'
-    - '*.edu.cn'
-    - localhost.ptlogin2.qq.com
-    - '*.*.*.srv.nintendo.net'
-    - '*.*.stun.playstation.net'
-    - xbox.*.*.microsoft.com
-    - '*.*.xboxlive.com'
-    - '*.msftncsi.com'
+
+  #   - '*.lan'
+
+  #   - localhost.ptlogin2.qq.com
+
+    - 'dns.msftncsi.com'
+
+    - 'www.msftncsi.com'
+
     - 'www.msftconnecttest.com'
+
   nameserver:
-    - 'https://dns.alidns.com/dns-query'
-    - 'https://1.1.1.1/dns-query'
-    - 'tls://dns.adguard.com:853'
+
+    - 119.29.29.29
+
+    # - tls://dns.rubyfish.cn:853 # DNS over TLS
+
+    # - https://1.1.1.1/dns-query # DNS over HTTPS
+
+  fallback:
+
+    - https://cloudflare-dns.com/dns-query
+
+  fallback-filter:
+
+    geoip: true
+
+    ipcidr:
+
+      # - 240.0.0.0/4
 proxies:
   - name: 🌸
     type: socks5
