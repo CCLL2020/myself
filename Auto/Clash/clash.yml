@@ -17,7 +17,7 @@ mixed-port: 7890
 
 # Set to true to allow connections to local-end server from
 # other LAN IP addresses
-allow-lan: false
+allow-lan: true
 
 # This is only applicable when `allow-lan` is `true`
 # '*': bind all IP addresses
@@ -34,9 +34,6 @@ mode: rule
 # Clash by default prints logs to STDOUT
 # info / warning / error / debug / silent
 log-level: info
-
-# When set to false, resolver won't translate hostnames to IPv6 addresses
-ipv6: false
 
 # RESTful web API listening address
 external-controller: 127.0.0.1:9090
@@ -62,6 +59,8 @@ external-controller: 127.0.0.1:9090
 # e.g. foo.example.com > *.example.com > .example.com
 # P.S. +.foo.com equals to .foo.com and foo.com
 hosts:
+  'mtalk.google.com': 108.177.125.188
+  't.cn': 203.107.55.116
   # '*.clash.dev': 127.0.0.1
   # '.dev': 127.0.0.1
   # 'alpha.clash.dev': '::1'
@@ -71,35 +70,26 @@ hosts:
 dns:
   enable: true
   listen: 0.0.0.0:5450
-  # ipv6: false # when false, response to AAAA questions will be empty
+  ipv6: false 
 
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
-  enhanced-mode: redir-host # or fake-ip
-  # Hostnames in this list will not be resolved with fake IPs
-  # i.e. questions to these domain names will always be answered with their
-  # real IP addresses
-  # fake-ip-filter:
-  #   - '*.lan'
-  #   - localhost.ptlogin2.qq.com
-  #   - 'dns.msftncsi.com'
-  #   - 'www.msftncsi.com'
-  #   - 'www.msftconnecttest.com'
-  
-  # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
-  # All DNS questions are sent directly to the nameserver, without proxies
-  # involved. Clash answers the DNS question with the first result gathered.
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: redir-host 
   nameserver:
     - 119.29.29.29
-    - 8.8.8.8
-
+    - 223.5.5.5
+    - tls://dns.rubyfish.cn:853 # DNS over TLS
+    - https://1.1.1.1/dns-query # DNS over HTTPS
 
   # When `fallback` is present, the DNS server will send concurrent requests
   # to the servers in this section along with servers in `nameservers`.
   # The answers from fallback servers are used when the GEOIP country
   # is not `CN`.
-  # fallback:
-  #   - https://cloudflare-dns.com/dns-query
+  fallback:
+    - https://cloudflare-dns.com/dns-query
 
   # If IP addresses resolved with servers in `nameservers` are in the specified
   # subnets below, they are considered invalid and results from `fallback`
@@ -115,7 +105,7 @@ dns:
   fallback-filter:
     geoip: true
     ipcidr:
-       - 240.0.0.0/4
+      - 240.0.0.0/4
 proxies:
   - name: 🌸
     type: socks5
