@@ -75,8 +75,8 @@ dns:
   # Specify IP addresses only
   default-nameserver:
      - 119.29.29.29
-     - 223.5.5.5
      - 114.114.114
+     - 223.5.5.5
   enhanced-mode: redir-host 
   nameserver:
      - 119.29.29.29
