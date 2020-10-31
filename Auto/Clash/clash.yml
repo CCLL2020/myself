@@ -73,9 +73,10 @@ dns:
   ipv6: false 
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
-  # default-nameserver:
-  #    - 119.29.29.29
-  #    - 223.5.5.5
+  default-nameserver:
+     - 119.29.29.29
+     - 223.5.5.5
+     - 114.114.114
   enhanced-mode: redir-host 
   nameserver:
      - 119.29.29.29
