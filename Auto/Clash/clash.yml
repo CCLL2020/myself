@@ -74,13 +74,12 @@ dns:
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
   default-nameserver:
-    - 119.29.29.29
-    - 8.8.8.8
-    - 1.0.0.1
+     - 119.29.29.29
+     - 223.5.5.5
   enhanced-mode: redir-host 
   nameserver:
-    - 119.29.29.29
-    - 8.8.8.8
+     - 119.29.29.29
+     - 223.5.5.5
   # - tls://dns.rubyfish.cn:853 # DNS over TLS
   # - https://1.1.1.1/dns-query # DNS over HTTPS
 
@@ -88,8 +87,8 @@ dns:
   # to the servers in this section along with servers in `nameservers`.
   # The answers from fallback servers are used when the GEOIP country
   # is not `CN`.
-  fallback:
-    - https://cloudflare-dns.com/dns-query
+  # fallback:
+  #  - https://cloudflare-dns.com/dns-query
 
   # If IP addresses resolved with servers in `nameservers` are in the specified
   # subnets below, they are considered invalid and results from `fallback`
