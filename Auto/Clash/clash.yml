@@ -1,3 +1,4 @@
+  
 # Port of HTTP(S) proxy server on the local end
 # port: 7890
 
@@ -17,7 +18,7 @@ mixed-port: 7890
 
 # Set to true to allow connections to local-end server from
 # other LAN IP addresses
-allow-lan: true
+allow-lan: false
 
 # This is only applicable when `allow-lan` is `true`
 # '*': bind all IP addresses
@@ -34,6 +35,9 @@ mode: rule
 # Clash by default prints logs to STDOUT
 # info / warning / error / debug / silent
 log-level: info
+
+# When set to false, resolver won't translate hostnames to IPv6 addresses
+ipv6: false
 
 # RESTful web API listening address
 external-controller: 127.0.0.1:9090
@@ -57,22 +61,34 @@ external-controller: 127.0.0.1:9090
 # Wildcard hostnames are supported (e.g. *.clash.dev, *.foo.*.example.com)
 # Non-wildcard domain names has a higher priority than wildcard domain names
 # e.g. foo.example.com > *.example.com > .example.com
-# P.S. +.foo.com equals to .foo.com and foo.
+# P.S. +.foo.com equals to .foo.com and foo.com
+hosts:
+  'mtalk.google.com': 108.177.125.188
+  't.cn': 203.107.55.116
+  '*.clash.dev': 127.0.0.1
+  '.dev': 127.0.0.1
+  'alpha.clash.dev': '::1'
+
 # DNS server settings
 # This section is optional. When not present, DNS server will be disabled.
 dns:
   enable: true
-  listen: 0.0.0.0:5450
-  ipv6: false 
-  default-nameserver:
-     - 119.29.29.29
+  listen: 0.0.0.0:53
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
-  enhanced-mode: redir-host 
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: redir-host # or fake-ip
+
+  # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
+  # All DNS questions are sent directly to the nameserver, without proxies
+  # involved. Clash answers the DNS question with the first result gathered.
   nameserver:
-     - 119.29.29.29
-  # - tls://dns.rubyfish.cn:853 # DNS over TLS
-  # - https://1.1.1.1/dns-query # DNS over HTTPS
+    - 119.29.29.29
+    - 223.5.5.5
+    # - tls://dns.rubyfish.cn:853 # DNS over TLS
+    # - https://1.1.1.1/dns-query # DNS over HTTPS
 
   # When `fallback` is present, the DNS server will send concurrent requests
   # to the servers in this section along with servers in `nameservers`.
@@ -95,7 +111,7 @@ dns:
   fallback-filter:
     geoip: true
     ipcidr:
-        - 240.0.0.0/4
+      - 240.0.0.0/4
 proxies:
   - name: 🌸
     type: socks5
