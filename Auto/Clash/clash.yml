@@ -73,7 +73,7 @@ hosts:
 # This section is optional. When not present, DNS server will be disabled.
 dns:
   enable: true
-  listen: 0.0.0.0:53
+  listen: 0.0.0.0:5450
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
   default-nameserver:
