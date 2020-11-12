@@ -77,7 +77,6 @@ dns:
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
   default-nameserver:
-    - 8.8.8.8
     - 223.5.5.5
     - 119.29.29.29
   enhanced-mode: redir-host # or fake-ip
@@ -92,7 +91,6 @@ dns:
   # All DNS questions are sent directly to the nameserver, without proxies
   # involved. Clash answers the DNS question with the first result gathered.
   nameserver:
-    - 8.8.8.8
     - 223.5.5.5
     - 119.29.29.29
     # - tls://dns.rubyfish.cn:853 # DNS over TLS
