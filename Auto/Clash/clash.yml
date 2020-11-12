@@ -79,6 +79,7 @@ dns:
   default-nameserver:
     - 119.29.29.29
     - 223.5.5.5
+    - 1.0.0.1
   enhanced-mode: redir-host # or fake-ip
   #  fake-ip-range: 198.18.0.1/16
   # fake-ip-filter:
@@ -117,7 +118,7 @@ dns:
   fallback-filter:
     geoip: true
     ipcidr:
-      - 240.0.0.0/4
+     # - 240.0.0.0/4
 proxies:
   - name: 🌸
     type: socks5
