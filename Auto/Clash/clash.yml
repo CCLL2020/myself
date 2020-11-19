@@ -78,7 +78,6 @@ dns:
   # Specify IP addresses only
   default-nameserver:
     - 119.29.29.29
-    - 8.8.8.8
   enhanced-mode: redir-host # or fake-ip
   #  fake-ip-range: 198.18.0.1/16
   # fake-ip-filter:
@@ -92,7 +91,6 @@ dns:
   # involved. Clash answers the DNS question with the first result gathered.
   nameserver:
     - 119.29.29.29
-    - 8.8.8.8
     # - tls://dns.rubyfish.cn:853 # DNS over TLS
     # - https://1.1.1.1/dns-query # DNS over HTTPS
 
