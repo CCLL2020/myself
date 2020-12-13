@@ -72,20 +72,16 @@ hosts:
 # DNS server settings
 # This section is optional. When not present, DNS server will be disabled.
 dns:
-  enable: true
-  listen: 0.0.0.0:5450
+  enable: false
+  listen: 0.0.0.0:53
+  # ipv6: false # when false, response to AAAA questions will be empty
+
   # These nameservers are used to resolve the DNS nameserver hostnames below.
   # Specify IP addresses only
   default-nameserver:
     - 119.29.29.29
+    - 1.0.0.1
   enhanced-mode: redir-host # or fake-ip
-  #  fake-ip-range: 198.18.0.1/16
-  # fake-ip-filter:
-  #  - '*.lan'
-  #   - localhost.ptlogin2.qq.com
-  #    - 'dns.msftncsi.com'
-  #   - 'www.msftncsi.com'
-  #    - 'www.msftconnecttest.com'
   # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
   # All DNS questions are sent directly to the nameserver, without proxies
   # involved. Clash answers the DNS question with the first result gathered.
@@ -98,8 +94,8 @@ dns:
   # to the servers in this section along with servers in `nameservers`.
   # The answers from fallback servers are used when the GEOIP country
   # is not `CN`.
-  # fallback:
-  #  - https://cloudflare-dns.com/dns-query
+  fallback:
+    - https://cloudflare-dns.com/dns-query
 
   # If IP addresses resolved with servers in `nameservers` are in the specified
   # subnets below, they are considered invalid and results from `fallback`
