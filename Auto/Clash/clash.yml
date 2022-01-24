@@ -62,18 +62,44 @@ external-controller: 127.0.0.1:9090
 # Non-wildcard domain names has a higher priority than wildcard domain names
 # e.g. foo.example.com > *.example.com > .example.com
 # P.S. +.foo.com equals to .foo.com and foo.com
+external-ui: folder
+
+# Secret for the RESTful API (optional)
+# Authenticate by spedifying HTTP header `Authorization: Bearer ${secret}`
+# ALWAYS set a secret if RESTful API is listening on 0.0.0.0
+# secret: ""
+
+# Outbound interface name
+interface-name: en0
+
+# fwmark on Linux only
+routing-mark: 6666
+
+# Static hosts for DNS server and connection establishment (like /etc/hosts)
+#
+# Wildcard hostnames are supported (e.g. *.clash.dev, *.foo.*.example.com)
+# Non-wildcard domain names have a higher priority than wildcard domain names
+# e.g. foo.example.com > *.example.com > .example.com
+# P.S. +.foo.com equals to .foo.com and foo.com
 hosts:
-  'mtalk.google.com': 108.177.125.188
-  't.cn': 203.107.55.116
-  '*.clash.dev': 127.0.0.1
-  '.dev': 127.0.0.1
-  'alpha.clash.dev': '::1'
+  # '*.clash.dev': 127.0.0.1
+  # '.dev': 127.0.0.1
+  # 'alpha.clash.dev': '::1'
+
+profile:
+  # Store the `select` results in $HOME/.config/clash/.cache
+  # set false If you don't want this behavior
+  # when two different configurations have groups with the same name, the selected values are shared
+  store-selected: false
+
+  # persistence fakeip
+  store-fake-ip: true
 
 # DNS server settings
 # This section is optional. When not present, DNS server will be disabled.
 dns:
   enable: true
-  listen: 0.0.0.0:5450
+  listen: 0.0.0.0:53
   ipv6: false
   default-nameserver:
     - 8.8.8.8
