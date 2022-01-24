@@ -54,9 +54,8 @@ profile:
 # This section is optional. When not present, DNS server will be disabled.
 dns:
   enable: false
-  listen: 0.0.0.0:5450
+  listen: 127.0.0.1:5450
   default-nameserver:
-    - 8.8.8.8
     - 119.29.29.29
     - 223.5.5.5
   enhanced-mode: redir-host # or fake-ip
