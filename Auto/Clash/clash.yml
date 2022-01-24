@@ -13,7 +13,7 @@ hosts:
   alpha.clash.dev: ::1
 dns:
   enable: true
-  listen: 0.0.0.0:5450
+  listen: 127.0.0.1:5451
   ipv6: false
   default-nameserver:
     - 8.8.8.8
