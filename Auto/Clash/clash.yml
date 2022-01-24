@@ -41,50 +41,24 @@ ipv6: false
 
 # RESTful web API listening address
 external-controller: 127.0.0.1:9090
-profile:
-  # Store the `select` results in $HOME/.config/clash/.cache
-  # set false If you don't want this behavior
-  # when two different configurations have groups with the same name, the selected values are shared
-  store-selected: false
-
-  # persistence fakeip
-  store-fake-ip: true
 
 # DNS server settings
 # This section is optional. When not present, DNS server will be disabled.
 dns:
   enable: true
-  listen: 0.0.0.0:5451
+  ipv6: false
+  listen: 127.0.0.1:5450
+  enhanced-mode: redir-host
   default-nameserver:
-    - 119.29.29.29
-    - 223.5.5.5
-  enhanced-mode: fake-ip #redir-host # or fake-ip
-  # Supports UDP, TCP, DoT, DoH. You can specify the port to connect to.
-  # All DNS questions are sent directly to the nameserver, without proxies
-  # involved. Clash answers the DNS question with the first result gathered.
-  nameserver:
-    - 114.114.114.114
-    - 119.29.29.29
-    - 223.5.5.5
-    # - tls://dns.rubyfish.cn:853 # DNS over TLS
-    # - https://1.1.1.1/dns-query # DNS over HTTPS
-
-  # When `fallback` is present, the DNS server will send concurrent requests
-  # to the servers in this section along with servers in `nameservers`.
-  # The answers from fallback servers are used when the GEOIP country
-  # is not `CN`.
-
-  # If IP addresses resolved with servers in `nameservers` are in the specified
-  # subnets below, they are considered invalid and results from `fallback`
-  # servers are used instead.
-  #
-  # IP address resolved with servers in `nameserver` is used when
-  # `fallback-filter.geoip` is true and when GEOIP of the IP address is `CN`.
-  #
-  # If `fallback-filter.geoip` is false, results from `fallback` nameservers
-  # are always used, and answers from `nameservers` are discarded.
-  #
-  # This is a countermeasure against DNS pollution attacks.
+     - 119.29.29.29
+     - 119.28.28.28
+     - 1.0.0.1
+     - 208.67.222.222
+     - 1.2.4.8
+   nameserver:
+     - https://dns.alidns.com/dns-query
+     - https://1.1.1.1/dns-query
+     - tls://dns.adguard.com:853
   fallback-filter:
     geoip: true
     ipcidr:
