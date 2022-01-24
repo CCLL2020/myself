@@ -53,7 +53,7 @@ profile:
 # DNS server settings
 # This section is optional. When not present, DNS server will be disabled.
 dns:
-  enable: false
+  enable: true
   listen: 0.0.0.0:5451
   default-nameserver:
     - 119.29.29.29
