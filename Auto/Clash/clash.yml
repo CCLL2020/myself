@@ -1,64 +1,29 @@
-  
-# Port of HTTP(S) proxy server on the local end
-# port: 7890
-
-# Port of SOCKS5 proxy server on the local end
-# socks-port: 7891
-
-# Transparent proxy server port for Linux and macOS
-# redir-port: 7892
-
-# HTTP(S) and SOCKS5 server on the same port
 mixed-port: 7890
-
-# authentication of local SOCKS5/HTTP(S) server
-# authentication:
-#  - "user1:pass1"
-#  - "user2:pass2"
-
-# Set to true to allow connections to local-end server from
-# other LAN IP addresses
 allow-lan: false
-
-# This is only applicable when `allow-lan` is `true`
-# '*': bind all IP addresses
-# 192.168.122.11: bind a single IPv4 address
-# "[aaaa::a8aa:ff:fe09:57d8]": bind a single IPv6 address
-bind-address: '*'
-
-# Clash router working mode
-# rule: rule-based packet routing
-# global: all packets will be forwarded to a single endpoint
-# direct: directly forward the packets to the Internet
+bind-address: "*"
 mode: rule
-
-# Clash by default prints logs to STDOUT
-# info / warning / error / debug / silent
 log-level: info
-
-# When set to false, resolver won't translate hostnames to IPv6 addresses
 ipv6: false
-
-# RESTful web API listening address
 external-controller: 127.0.0.1:9090
-
-# DNS server settings
-# This section is optional. When not present, DNS server will be disabled.
+hosts:
+  mtalk.google.com: 108.177.125.188
+  t.cn: 203.107.55.116
+  "*.clash.dev": 127.0.0.1
+  .dev: 127.0.0.1
+  alpha.clash.dev: ::1
 dns:
   enable: true
+  listen: 0.0.0.0:5450
   ipv6: false
-  listen: 127.0.0.1:5450
-  enhanced-mode: redir-host
   default-nameserver:
-     - 119.29.29.29
-     - 119.28.28.28
-     - 1.0.0.1
-     - 208.67.222.222
-     - 1.2.4.8
-   nameserver:
-     - https://dns.alidns.com/dns-query
-     - https://1.1.1.1/dns-query
-     - tls://dns.adguard.com:853
+    - 8.8.8.8
+    - 119.29.29.29
+    - 223.5.5.5
+  enhanced-mode: redir-host
+  nameserver:
+    - 114.114.114.114
+    - 119.29.29.29
+    - 223.5.5.5
   fallback-filter:
     geoip: true
     ipcidr:
