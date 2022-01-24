@@ -54,7 +54,7 @@ profile:
 # This section is optional. When not present, DNS server will be disabled.
 dns:
   enable: false
-  listen: 127.0.0.1:5450
+  listen: 0.0.0.0:5451
   default-nameserver:
     - 119.29.29.29
     - 223.5.5.5
