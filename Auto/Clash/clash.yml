@@ -16,9 +16,9 @@ dns:
     - 223.5.5.5
   enhanced-mode: fake-ip
   nameserver:
+    - 8.8.8.8
     - 114.114.114.114
     - 119.29.29.29
-    - 8.8.8.8
     - 223.5.5.5
   fallback-filter:
     geoip: true
