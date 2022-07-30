@@ -12,13 +12,11 @@ dns:
   default-nameserver:
     - 114.114.114.114
     - 8.8.8.8
-    - 119.29.29.29
     - 223.5.5.5
   enhanced-mode: fake-ip
   nameserver:
     - 114.114.114.114
     - 8.8.8.8
-    - 119.29.29.29
     - 223.5.5.5
   fallback-filter:
     geoip: true
